@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>iPhones on Installments – Premium & Budget Deals</title>
+  <!-- Favicon -->
+<link rel="icon" type="image/png" href="https://i.ibb.co/FkHyHRyr/Screenshot-20260201-143204-Gallery.webp" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="https://i.ibb.co/FkHyHRyr/Screenshot-20260201-143204-Gallery.webp" />
+<link rel="shortcut icon" href="https://i.ibb.co/4gDndwPB/Flyerwiz-1769399915095.webp" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/FkHyHRyr/Screenshot-20260201-143204-Gallery.webp" />
+<link rel="manifest" href="/site.webmanifest" />
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+      color: #1a1a1a;
+      margin: 0;
+      padding: 1.5rem 1rem;
+      line-height: 1.55;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 1.5rem 0 2.5rem;
+      font-size: clamp(1.9rem, 6vw, 2.8rem);
+    }
+
+    .deals-grid {
+      display: grid;
+      gap: 2rem;
+    }
+
+    .deal-section {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    .section-header {
+      padding: 1.2rem 1.5rem;
+      color: white;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .premium .section-header { background: #c41e3a; }
+    .budget  .section-header { background: #2e7d32; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 1rem 1.2rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: #475569;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .model {
+      font-weight: 600;
+      color: #0066cc;
+    }
+
+    .price, .down, .weekly {
+      font-family: ui-monospace, monospace;
+    }
+
+    tr:hover {
+      background: #f8fafc;
+    }
+
+    .inquire-btn {
+      background: #0066cc;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.92rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .inquire-btn:hover {
+      background: #0055aa;
+      transform: translateY(-1px);
+    }
+
+    .note {
+      margin: 3rem auto;
+      text-align: center;
+      color: #555;
+      font-size: 0.95rem;
+      max-width: 700px;
+      padding: 0 1rem;
+    }
+
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    .whatsapp-btn {
+      width: 64px;
+      height: 64px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 6px 20px rgba(37,213,102,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2.4s infinite ease-in-out;
+    }
+
+    .whatsapp-btn img {
+      width: 70%;
+    }
+
+    .whatsapp-btn:hover {
+      transform: scale(1.1);
+      animation-play-state: paused;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1);   box-shadow: 0 0 0 0 rgba(37,213,102,0.5); }
+      50%      { transform: scale(1.07); box-shadow: 0 0 0 15px rgba(37,213,102,0); }
+    }
+
+    /* ── Mobile: table → card layout ── */
+    @media (max-width: 768px) {
+      .deals-grid {
+        grid-template-columns: 1fr;
+      }
+
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+      }
+
+      tr {
+        margin-bottom: 1.4rem;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        background: white;
+      }
+
+      td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+      }
+
+      td:before {
+        position: absolute;
+        top: 50%;
+        left: 1rem;
+        transform: translateY(-50%);
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        font-weight: 600;
+        color: #555;
+        content: attr(data-label);
+        text-align: left;
+      }
+
+      td:last-child {
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .inquire-btn {
+        width: 85%;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .deals-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1rem 0.8rem; }
+      .whatsapp-float { bottom: 16px; right: 16px; }
+      .whatsapp-btn { width: 58px; height: 58px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <h1>iPhones on Installments</h1>
+
+    <div class="deals-grid">
+
+      <!-- Premium Deals -->
+      <div class="deal-section premium">
+        <div class="section-header">📱 Premium Deals</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Price (UGX)</th>
+              <th>Down Payment</th>
+              <th>Weekly</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="model" data-label="Model">iPhone 14 Pro</td>
+              <td class="price" data-label="Price (UGX)">1,950,000/=</td>
+              <td data-label="Down Payment">780,000/=</td>
+              <td data-label="Weekly">—</td>
+              <td><button class="inquire-btn" data-model="iPhone 14 Pro">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 14 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">2,200,000/=</td>
+              <td data-label="Down Payment">1,100,000/=</td>
+              <td data-label="Weekly">124,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 14 Pro Max">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 15 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">3,000,000/=</td>
+              <td data-label="Down Payment">1,500,000/=</td>
+              <td data-label="Weekly">168,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 15 Pro Max">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 16</td>
+              <td class="price" data-label="Price (UGX)">2,600,000/=</td>
+              <td data-label="Down Payment">1,300,000/=</td>
+              <td data-label="Weekly">147,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 16">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 16 Pro</td>
+              <td class="price" data-label="Price (UGX)">3,550,000/=</td>
+              <td data-label="Down Payment">1,770,000/=</td>
+              <td data-label="Weekly">190,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 16 Pro">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 16 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">3,850,000/=</td>
+              <td data-label="Down Payment">1,920,000/=</td>
+              <td data-label="Weekly">210,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 16 Pro Max">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 17</td>
+              <td class="price" data-label="Price (UGX)">3,500,000/=</td>
+              <td data-label="Down Payment">2,100,000/=</td>
+              <td data-label="Weekly">150,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 17">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 17 Pro</td>
+              <td class="price" data-label="Price (UGX)">4,850,000/=</td>
+              <td data-label="Down Payment">2,910,000/=</td>
+              <td data-label="Weekly">220,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 17 Pro">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 17 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">5,400,000/=</td>
+              <td data-label="Down Payment">3,240,000/=</td>
+              <td data-label="Weekly">243,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 17 Pro Max">Inquire</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Budget Deals -->
+      <div class="deal-section budget">
+        <div class="section-header">💰 Budget Deals</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Price (UGX)</th>
+              <th>Down Payment</th>
+              <th>Weekly</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="model" data-label="Model">iPhone 11</td>
+              <td class="price" data-label="Price (UGX)">750,000/=</td>
+              <td data-label="Down Payment">300,000/=</td>
+              <td data-label="Weekly">50,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 11">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 11 Pro</td>
+              <td class="price" data-label="Price (UGX)">900,000/=</td>
+              <td data-label="Down Payment">360,000/=</td>
+              <td data-label="Weekly">60,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 11 Pro">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 11 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">1,100,000/=</td>
+              <td data-label="Down Payment">440,000/=</td>
+              <td data-label="Weekly">74,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 11 Pro Max">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 12</td>
+              <td class="price" data-label="Price (UGX)">900,000/=</td>
+              <td data-label="Down Payment">360,000/=</td>
+              <td data-label="Weekly">60,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 12">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 12 Pro</td>
+              <td class="price" data-label="Price (UGX)">1,150,000/=</td>
+              <td data-label="Down Payment">460,000/=</td>
+              <td data-label="Weekly">77,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 12 Pro">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 12 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">1,300,000/=</td>
+              <td data-label="Down Payment">520,000/=</td>
+              <td data-label="Weekly">87,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 12 Pro Max">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 13</td>
+              <td class="price" data-label="Price (UGX)">1,200,000/=</td>
+              <td data-label="Down Payment">480,000/=</td>
+              <td data-label="Weekly">81,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 13">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 13 Pro</td>
+              <td class="price" data-label="Price (UGX)">1,400,000/=</td>
+              <td data-label="Down Payment">560,000/=</td>
+              <td data-label="Weekly">94,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 13 Pro">Inquire</button></td>
+            </tr>
+            <tr>
+              <td class="model" data-label="Model">iPhone 13 Pro Max</td>
+              <td class="price" data-label="Price (UGX)">1,600,000/=</td>
+              <td data-label="Down Payment">640,000/=</td>
+              <td data-label="Weekly">108,000/=</td>
+              <td><button class="inquire-btn" data-model="iPhone 13 Pro Max">Inquire</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="note">
+      Prices in Ugandan Shillings (USh / UGX) • Installment plans subject to terms & conditions • 
+      Down payment required upfront • Weekly payments may vary based on duration • 
+      Contact us for full details, availability & latest offers 📞
+    </div>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="whatsapp-float">
+      <a href="https://wa.me/256707407439?text=Hello!%20I'm%20interested%20in%20your%20iPhone%20installment%20plans"
+         class="whatsapp-btn"
+         target="_blank"
+         rel="noopener noreferrer"
+         title="Chat with us on WhatsApp">
+        <img src="https://www.edigitalagency.com.au/wp-content/uploads/new-WhatsApp-icon-PNG.png" alt="WhatsApp">
+      </a>
+    </div>
+
+  </div>
+<script>
+document.querySelectorAll('.inquire-btn').forEach(button => {
+  button.addEventListener('click', function () {
+    const model = this.getAttribute('data-model');
+
+    if (!model) {
+      alert("Sorry, model information is missing.");
+      return;
+    }
+
+    const message =
+      `Hello! I'm interested in getting the ${model} on installment.\n` +
+      `Can you please provide more details about:\n` +
+      `- Down payment required\n` +
+      `- Weekly payment amount\n` +
+      `- Loan duration options\n` +
+      `- Any current promotions or requirements\n\n` +
+      `Thank you!`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = "256707407439"; // WhatsApp number (no +, no spaces)
+
+    // ✅ Correct WhatsApp redirect URL
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+  });
+});
+</script>
+</body>
+</html>
